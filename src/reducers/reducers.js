@@ -17,5 +17,15 @@ export const initialState = [
 ];
 
 export const reduceTodo = (state, action) => {
-  return state;
+  let newTodo = {
+    item: action.payload,
+    completed: false,
+    id: Date.now()
+  };
+  switch (action.type) {
+    case "ADD_TODO":
+      return [...state, newTodo];
+    default:
+      return state;
+  }
 };
